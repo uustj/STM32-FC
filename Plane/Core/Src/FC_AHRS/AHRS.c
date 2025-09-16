@@ -313,7 +313,7 @@ Euler AHRS_Quaternion2Euler(const Quaternion ori)
 #define POW(x) (x*x)
     ret.roll  = atan2( 2.0f*(ori.q0 * ori.q1 + ori.q2*ori.q3),
                        1.0f - 2.0f*(POW(ori.q1) + POW(ori.q2)) );
-    ret.pitch = -asin ( 2.0f*(ori.q0 * ori.q2 - ori.q3*ori.q1) );
+    ret.pitch = asin ( 2.0f*(ori.q0 * ori.q2 - ori.q3*ori.q1) );
     ret.yaw   = atan2( 2.0f*(ori.q0*ori.q3 + ori.q1*ori.q2),
                        1.0f - 2.0f*(POW(ori.q2) + POW(ori.q3)) );
 #undef POW
