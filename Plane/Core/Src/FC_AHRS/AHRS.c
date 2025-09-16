@@ -110,9 +110,9 @@ int AHRS_GetData(void)
     mag =  LPF_update3D(&lpf_mag, &mag);
 
 
-    // 가속도를 기반으로 roll, pitch 게산(부호수정-rlawnstj)
+    // 가속도를 기반으로 roll, pitch 계산
     angE.roll = atan2(acc.y, acc.z);
-    angE.pitch = atan2(-acc.x, sqrt(pow(acc.y, 2) + pow(acc.z, 2)));
+    angE.pitch = atan2(acc.x, sqrt(pow(acc.y, 2) + pow(acc.z, 2)));
 
     // 지자계와 roll, pitch를 기반으로 yaw 계산
     angE.yaw = AHRS_calculateYAW(mag, angE);
